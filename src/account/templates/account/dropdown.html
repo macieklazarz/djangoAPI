@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST">{% csrf_token %}
+	<p><b>City: </b>
+		<select name="city" class="form-control">
+			{% for results in showcity %}
+			<option value="{{results.id}}">{{ results.name}}</option>
+			{% endfor %}
+		</select>
+	</p>
+	<button type="submit">Submit</button>
+</form>
+
+	<p>Cisnienie wynosi: {{ stacja.cisnienie }}</p>
+	<p>Temperatura wynosi: {{ stacja.temperatura }}</p>
+
+<table class="content-table">
+   <tr>
+   		<td>Cisnienie wynosi:</td>
+   		<td>{{ stacja.cisnienie }}</td>
+   </tr>
+   <tr>
+   		<td>Temperatura wynosi:</td>
+   		<td>{{ stacja.temperatura }}</td>
+   </tr>
+</table>
+
+{% endblock content%}

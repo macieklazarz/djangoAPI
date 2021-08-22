@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+	<title>This is titme</title>
+
+	{% if request.user.is_authenticated %}
+		<p>Hello, {{request.user.username}} | <a href="{% url 'logout'%}">Logout</a></p>
+	{% else %}
+		<p><a href="{% url 'register' %}">Register</a> | <a href="#">Login</a></p>
+	{% endif %}
+	<hr>
+	
+
+</head>
+<body>
+	
+	{% block content %}
+	
+	{% endblock content %}
+
+
+</body>
+
+<footer>
+	<hr>
+	<p>Coding with Mich Blog</p>
+	</div></footer>
+
+</html>
